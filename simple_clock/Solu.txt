@@ -1,0 +1,65 @@
+Let's break down the useState and useEffect sections in detail to better understand how the time is being dynamically updated.
+
+useState - Initializing the State
+const now = new Date();
+const [time, setTime] = useState(`${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`);
+useState is a React Hook that allows you to add state to a functional component. In this case, it's used to store the current time.
+time is the current value of the state, and it holds the time string (HH:MM:SS).
+setTime is the function used to update the state.
+When the component first renders, new Date() gets the current time, and now.getHours(), now.getMinutes(), and now.getSeconds() are used to create the initial time string in the format HH:MM:SS.
+
+## Why useState?
+1.Why do we need state for time? The time needs to change dynamically every second, and React components re-render when their state changes. By storing the time in state, we can trigger re-renders every time the state (time) is updated, ensuring that the displayed time is always current.
+useEffect - Managing Side Effects (Timer)
+
+useEffect(() => {
+  const intervalId = setInterval(() => {
+    const currentTime = new Date();
+    setTime(
+      `${String(currentTime.getHours()).padStart(2, '0')}:${String(currentTime.getMinutes()).padStart(2, '0')}:${String(currentTime.getSeconds()).padStart(2, '0')}`
+    );
+  }, 1000);
+
+  return () => clearInterval(intervalId);
+}, []);
+Inside useEffect:
+
+Purpose of useEffect:
+
+useEffect is used to manage side effects in a React component, such as setting timers, fetching data, or subscribing to external events.
+Here, the side effect we want to manage is updating the time every second.
+Setting up the timer:
+
+The setInterval function inside useEffect creates a recurring task that runs every 1000 milliseconds (1 second). It continuously executes the code within its callback function to update the time.
+What happens in the callback function?
+
+A new Date object is created to capture the current time.
+
+We use setTime to update the time state with the new time, formatted as HH:MM:SS.
+
+
+** String(...).padStart(2, '0'):
+
+This ensures that hours, minutes, and seconds are always two digits. If the time is, for example, 5:9:3 (5 hours, 9 minutes, and 3 seconds), the padStart method converts it to 05:09:03.
+padStart(2, '0') means: if the string has less than 2 characters, add leading 0s until it has 2 characters.
+
+## Why 1000 milliseconds?
+
+The setInterval function is set to run every 1000 milliseconds (1 second), which matches how frequently we want the time to update.
+
+Cleanup (Why is the clearInterval needed?)
+return () => clearInterval(intervalId);
+
+Why return a function?
+This return function is executed when the component is unmounted (removed from the screen), or if the effect is re-executed for some reason.
+The clearInterval(intervalId) function stops the timer when the component is no longer in use. This prevents memory leaks by making sure that the interval doesn't keep running in the background after the component is unmounted.
+
+Dependency Array ([]):
+useEffect(() => { ... }, []);
+
+The empty dependency array [] means this effect runs only once—when the component is first mounted. Without the array, useEffect would run on every render, which would result in many setInterval calls, creating multiple timers that would overlap.
+Putting it all together:
+Initial Render: When the component mounts, the useState initializes the time to the current HH:MM:SS. Then, useEffect sets up a timer to update the time every second.
+Subsequent Updates: Every second, setInterval fires, updating the time state with the new time. The component re-renders with the updated time.
+Cleanup: If the component is unmounted, clearInterval stops the timer to prevent unnecessary updates.
+This approach makes the displayed time dynamic and continuously updates in real time.
