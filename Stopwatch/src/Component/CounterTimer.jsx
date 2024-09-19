@@ -20,7 +20,7 @@ function formatTime(){
 }
 
 function handleStart()
-{1
+{
   setActive(true);
   setPause(false);
 
