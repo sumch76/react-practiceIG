@@ -6,7 +6,7 @@ function CounterTimer() {
   const[time,setTime]=useState(0);
   const[isActive,setActive]=useState(false);
   const[isPause,setPause]=useState(true);
-  const intervalRef=useRef("null");
+  const intervalRef=useRef(null);
 
   const handleInput=(e)=>{
     setTime(parseInt(e.target.value*60))
@@ -20,7 +20,7 @@ function formatTime(){
 }
 
 function handleStart()
-{
+{1
   setActive(true);
   setPause(false);
 
