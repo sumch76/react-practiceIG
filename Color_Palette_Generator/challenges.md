@@ -1,4 +1,5 @@
 >## Create a 'Generate' button with the ID 'generate'.
+
 >## Add a display 'div' with the ID 'current-palette' for showing the current color palette.
 
 >## Include a 'div' with the ID 'saved-palettes' for storing saved color palettes.
