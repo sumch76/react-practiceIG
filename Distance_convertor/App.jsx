@@ -10,13 +10,13 @@ export default function App() {
 	}
 	const [number, setNumber] = useState('')
 	const [conversion, setConversion] = useState('')
-	const [toUnit, setToUnit] = useState('')
-	const [fromUnit, setFromUnit] = useState('')
+	const [toUnit, setToUnit] = useState(null)
+	const [fromUnit, setFromUnit] = useState(null)
 	function handleConversion() {
 		if (fromUnit && toUnit && number) {
 			const fromValueinCm = number * conversionRates[fromUnit]
 			const convertedValue = fromValueinCm / conversionRates[toUnit]
-			setConversion(convertedValue.toFixed(2))
+			setConversion(convertedValue.toFixed(3))
 		} else {
 			setConversion('please provide valid inputs.')
 		}
@@ -36,7 +36,7 @@ export default function App() {
 				<option value="kilometers">kilometers</option>
 				<option value="miles">miles</option>
 			</select>
-			<select id="toUnit" onChange={(e) => setFromUnit(e.target.value)}>
+			<select id="toUnit" onChange={(e) => setToUnit(e.target.value)}>
 				<option value="" disabled hidden>
 					TO
 				</option>
@@ -51,12 +51,12 @@ export default function App() {
 				type="number"
 				id="fromValue"
 				className="border border-2 border-black"
-				onChange={setNumber((e) => e.target.value)}
+				onChange={(e)=>setNumber(e.target.value)}
 			/>
 			<button id="convert" onClick={handleConversion}>
 				Convert
 			</button>
-			<div id="outputValue">{setConversion}</div>
+			<div id="outputValue">{conversion}</div>
 		</>
 	)
 }
