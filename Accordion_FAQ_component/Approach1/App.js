@@ -3,6 +3,9 @@ import { useState } from "react";
 export default function App() {
   // State to track which accordion is active (open)
   const [activeIndex, setActiveIndex] = useState(0);
+  // if i do not want by default any accordion open
+  // Set to -1 to indicate that no accordion is open by default
+  // const [activeIndex, setActiveIndex] = useState(-1);
 
   // Function to toggle the accordion
   const toggleAccordion = (index) => {
