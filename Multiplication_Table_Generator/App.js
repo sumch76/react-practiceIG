@@ -4,6 +4,7 @@ export default function App() {
 	const [number, setNumber] = useState('')
 	const [table, setTable] = useState([])
 	const handleGenerate = () => {
+        //checking if the number is within the valid range
 		if (number >= 0 && number <= 1000) {
 			const newTable = []
 			for (let i = 1; i <= 20; i++) {
