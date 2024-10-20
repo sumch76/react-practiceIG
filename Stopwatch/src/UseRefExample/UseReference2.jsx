@@ -15,12 +15,10 @@ const UseReference2 = () => {
             setSecond(prev=>prev+1);  //increase  timer in each second
         },1000);
     };
-
     const stopTimer=()=>{
         clearInterval(timeRef.current); //stop timer
         timeRef.current=null; //reset ref
     }
-
 
     const resetTimer=()=>{
         clearInterval(timeRef.current);
