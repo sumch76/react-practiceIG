@@ -11,5 +11,4 @@ const useCounter = () => {
     }
     return [count, Increment, Decrement];
 }
-
 export default useCounter;

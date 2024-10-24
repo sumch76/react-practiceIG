@@ -1,17 +1,13 @@
-import useCounter from './useCounter'
 import './App.css'
+import Counter from './Counter'
+import OnOff from './hooks/OnOff'
 
 function App() {
-  const[count,Increment,Decrement] =useCounter()
-
-
-  return (
-    <>
-    <div>{count}</div>
-    <button onClick={Increment}>Increment</button>
-    <button onClick={Decrement}>Decrement</button>
-    </>
+  return(
+  <>
+  <Counter/>
+  <OnOff/>
+  </>
   )
 }
-
 export default App
