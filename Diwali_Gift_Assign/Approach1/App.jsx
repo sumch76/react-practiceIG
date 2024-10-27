@@ -11,6 +11,7 @@ const App = () => {
         'sweets',
         'cup-set',
         'frame',
+        'soan-papdi'
     ];
     ///to addd a person
     //person is array i.e why we are writing person whatever name it is storing on the person
@@ -20,7 +21,6 @@ const App = () => {
             setName('');
         }
     };
-
     const handleAssignGifts = () => {
         setPerson(
             //index is always a second parameter

@@ -15,7 +15,6 @@ const App = () => {
       setName('');
     }
   };
-
   // Function to assign gifts in order to all persons
   const assignGifts = () => {
     setPersons(
