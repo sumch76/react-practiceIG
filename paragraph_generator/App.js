@@ -8,8 +8,10 @@ function App() {
   {
     const sampleWords="Lorem ipsum dolor sit amet consectetur adipiscing elit".split(" ");
     let result="";
+     // Add words from sampleWords up to the entered count
     for(let i=0;i<words;i++)
     {
+         // Repeat the sample text if the word count exceeds its length
       result=result+sampleWords[i%sampleWords.length]+ " ";
     }
     setParagraph(result.trim());
