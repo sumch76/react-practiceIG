@@ -60,8 +60,6 @@ export default function App() {
     </>
   );
 }
-
-
 //other method to put fetchedPost inside the useEffect
 
 import React, { useEffect, useState } from 'react';
