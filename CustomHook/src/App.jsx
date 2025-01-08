@@ -1,9 +1,11 @@
 import useMousePosition from './components/useMousePosition';
 import useOnlineHook from '/src/components/useOnlineHook';
+import useDimensions from './components/useDimensions';
 import "./index.css"
 const App = () => {
   const online = useOnlineHook();
   const mouse=useMousePosition();
+  const dimensions = useDimensions();
   return (
     <div>
       {online ? (
@@ -18,6 +20,9 @@ const App = () => {
          left:`${mouse.x}px`,
         transform:'translate(-50% ,-50%',
       }}></div>
+       <p>
+        Width: {dimensions.width}px, Height: {dimensions.height}px
+      </p>
     </div>
   );
 };
