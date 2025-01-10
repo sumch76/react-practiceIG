@@ -1,0 +1,14 @@
+.functional{
+  padding: 10px ;
+  border-color: black;
+  background-color:aquamarine;
+ border: 1px solid rgb(202, 105, 105);
+
+}
+.class{
+  padding: 15px ;
+  border-color: black;
+  background-color:aquamarine;
+ border: 1px solid black;
+
+}
