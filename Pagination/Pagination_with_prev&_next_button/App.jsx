@@ -76,7 +76,6 @@ export default function App() {
       const data = await response.json();
       setPosts(data);
     };
-
     fetchPosts();
   }, [page]);
 
