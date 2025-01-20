@@ -14,3 +14,27 @@ const useOnlineHook = () => {
   return isOnline;
 };
 export default useOnlineHook;
+
+//another way  creating  function
+import { useEffect, useState } from 'react';
+
+const useOnline = () => {
+  const [isOnline, setisOnline] = useState(window.navigator.onLine);
+
+  const handleOnline = () => {
+    setisOnline(true);
+  };
+
+  const handleOffline = () => {
+    setisOnline(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+  }, []);
+
+  return isOnline;
+};
+export default useOnline;
+
