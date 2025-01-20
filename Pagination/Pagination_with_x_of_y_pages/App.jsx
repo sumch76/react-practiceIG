@@ -15,7 +15,6 @@ const App = () => {
       console.log(data);
       setPosts(data.posts);
       if(totalPage===0)
-
       {
         setTotalPage(Math.ceil(data.total/perPage));
       }
